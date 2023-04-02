@@ -1,5 +1,5 @@
-from turtle import Screen, Turtle
-from  paddle import Paddle
+from turtle import Screen
+from paddle import Paddle
 from ball import Ball
 import time
 
@@ -24,5 +24,10 @@ while game_is_on:
     time.sleep(0.1)
     screen.update()
     ball.move()
+
+    # Detect collision with the wall
+    if ball.ycor() > 280 or ball.ycor() < -280:
+        # ball needs to bounce
+        ball.bounce()
 
 screen.exitonclick()
